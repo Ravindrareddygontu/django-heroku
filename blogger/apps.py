@@ -1,0 +1,9 @@
+from django.apps import AppConfig
+
+
+class BloggerConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'blogger'
+
+    def ready(self):
+        import blogger.signals

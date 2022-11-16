@@ -1,0 +1,21 @@
+{% include 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    {{field.label}}: {{field}}<br><br>
+    {% endfor %}
+    <input type="submit">
+</form>
+{% for message in messages %}
+{{message}}
+{% endfor %}
+<h4><a href="/login">login</a></h4>
+<h4><a href="/home">login</a></h4>
+</body>
+</html>

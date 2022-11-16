@@ -1,0 +1,17 @@
+{% include 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    {{field.label}}: {{field}}<br><br>
+    {% endfor %}
+    <input type="submit">
+</form>
+<h5>if you not logged yet?.. click signup  <a href="/signup">Signup</a></h5>
+</body>
+</html>

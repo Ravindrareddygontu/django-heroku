@@ -1,0 +1,29 @@
+
+{% include 'base.html' %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .rectangle {
+  height: 130px;
+  width: 1600px;
+  background-color: LightGray;
+}</style>
+</head>
+<body>
+<a href="blog">Add a Blog</a>
+<h2>Blogs created by you</h2>
+{% for blog in blogs %}
+ {% if request.user == blog.Created_by %}
+<div class="rectangle">
+    <h4>@{{blog.Created_by.username}}</h4>
+<h1>{{blog.Title}}</h1>
+{{blog.Opinion}}
+<a href="/edit_blog/{{blog.id}}">edit</a>
+<a href="/delete_blog_dash/{{blog.id}}">delete</a></div><hr>
+{% endif %}
+{% endfor %}
+</body>
+</html>
